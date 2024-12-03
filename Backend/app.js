@@ -1,7 +1,8 @@
 const express = require('express');
 const mysql = require('mysql2');
-const session = require('bcryptjs');
+// const session = require('bcryptjs');
 const bodyparser = require('body-parser');
+const session = require('express-session');
 const Mysqlstore = require('express-mysql-session')(session);
 const flash = require('connect-flash');
 // const patientsRoutes = require('./routes/patientsRoutes'); 
@@ -24,7 +25,7 @@ app.use(bodyparser.urlencoded({ extended: true })); // Capture form data
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'opeyemi*220206',
     database: 'Finance_Tracker_DB',
     waitForConnections: true,
     connectionLimit: 10,
