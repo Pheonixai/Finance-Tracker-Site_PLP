@@ -4,8 +4,8 @@ const session = require('bcryptjs');
 const bodyparser = require('body-parser');
 const Mysqlstore = require('express-mysql-session')(session);
 const flash = require('connect-flash');
-const patientsRoutes = require('./routes/patientsRoutes'); 
-const patientControllers = require('./controllers/patientController');
+// const patientsRoutes = require('./routes/patientsRoutes'); 
+// const patientControllers = require('./controllers/patientController');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -25,7 +25,7 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'Finance_Trackerdb',
+    database: 'Finance_Tracker_DB',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
