@@ -1,12 +1,12 @@
 const express = require("express");
 const mysql = require("mysql2");
-const session = require("bcryptjs");
-const bodyparser = require("body-parser");
-const Mysqlstore = require("express-mysql-session")(session);
+const session = require("express-session");
+const bcrypt = require("bcryptjs");
 const flash = require("connect-flash");
-// const patientsRoutes = require('./routes/patientsRoutes');
-// const patientControllers = require('./controllers/patientController');
+const MySQLStore = require("express-mysql-session")(session);
 const dotenv = require("dotenv");
+const { isAuthenticated } = require("./middlewares/authmiddleware");
+
 dotenv.config();
 
 // Initialize app
