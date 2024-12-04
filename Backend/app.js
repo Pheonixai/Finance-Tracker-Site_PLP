@@ -1,12 +1,12 @@
 const express = require("express");
 const mysql = require("mysql2");
-const session = require("express-session");
-const bcrypt = require("bcryptjs");
+const session = require("bcryptjs");
+const bodyparser = require("body-parser");
+const Mysqlstore = require("express-mysql-session")(session);
 const flash = require("connect-flash");
-const MySQLStore = require("express-mysql-session")(session);
+// const patientsRoutes = require('./routes/patientsRoutes');
+// const patientControllers = require('./controllers/patientController');
 const dotenv = require("dotenv");
-const { isAuthenticated } = require("./middlewares/authmiddleware");
-
 dotenv.config();
 
 // Initialize app
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true })); // Capture form data
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "opeyemi*220206",
+  password: "",
   database: "Finance_Tracker_DB",
   waitForConnections: true,
   connectionLimit: 10,
