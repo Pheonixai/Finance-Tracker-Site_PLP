@@ -3,12 +3,12 @@ const bcrypt = require("bcryptjs");
 const db = require("../config/db");
 
 exports.signup = (req, res) => {
-  const { name, email, password } = req.body;
+  const { first_name, last_name, email, password } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 10);
 
   db.query(
-    "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-    [name, email, hashedPassword],
+    "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?)",
+    [first_name, last_name, email, hashedPassword],
     (err, result) => {
       if (err) return res.status(500).send(err);
 
