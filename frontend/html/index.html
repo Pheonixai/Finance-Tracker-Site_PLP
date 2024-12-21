@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+          <img src="../assets/Fin-tracker.webp" alt="Fin-Tracker Logo" class="logo">
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="signup.html">Sign Up </a></li>
+                  <li><a href="book-appointment.html">Track Expenses</a></li>
+              </ul>
+          </nav>
+         <!-- <a href="login.html" class="login-btn">Login</a> -->
+      </div>
+   </header>
+    <div class="dashboard">
+      <!-- User Overview -->
+      <div class="card overview">
+        <h3>Good morning, Tola!</h3>
+        <p class="balance">$23,627.00</p>
+        <div class="actions">
+          <button>Transfer</button>
+          <button>Add</button>
+          <button>Top Up</button>
+          <button>Pay Bills</button>
+        </div>
+      </div>
+
+      <!-- Analytics Section -->
+      <div class="card tracker">
+        <h4>Tracker</h4>
+        <div class="tracker-card">
+          <h3>Expense Overview</h3>
+          <canvas id="expenseChart" width="400" height="200"></canvas>
+      </div>
+      
+      </div>
+
+      <!-- Progress Bar Section -->
+      <div class="card progress">
+        <h4>Education</h4>
+        <div class="progress-bar">
+          <div class="fill" style="width: 52%"></div>
+        </div>
+        <p>$16,000</p>
+      </div>
+
+      <!-- Recent Transaction -->
+      <div class="card transactions">
+        <p>No Recent Transactions</p>
+      </div>
+
+      <!-- Expense Breakdown -->
+      <div class="card analytics">
+        <canvas id="ctxPie"></canvas>
+        <ul>
+          <li>Gift: $320</li>
+          <li>Grocery: $150</li>
+          <li>Transportation: $120</li>
+        </ul>
+      </div>
+
+      <!-- Budget Card -->
+      <div class="card budget">
+        <h4>Budget</h4>
+        <p><strong>Monthly Budget:</strong> $5,000</p>
+        <p><strong>Expenses:</strong> $3,200</p>
+        <div class="progress-bar">
+          <div class="fill" style="width: 64%"></div>
+        </div>
+      </div>
+
+      <!-- Call-to-Action -->
+      <div class="card invest">
+        <h4>Invest and Grow</h4>
+        <p>
+          You can now invest directly through our app and watch your money grow.
+        </p>
+        <button>Start Now</button>
+      </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
