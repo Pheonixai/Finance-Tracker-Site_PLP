@@ -21,10 +21,6 @@ A simple, yet effective personal finance management designed to help you take co
 * **Backend:** Expess.js and Node.js for server-side logic and API endpoints
 * **Database:** MySQL to store user data, transactions, and budgets
 
-**Contributing:**
-
-We welcome contributions from the open-source community. Please feel free to fork the repository and submit pull requests.
-
 **License:**
 
 This project is licensed under the MIT License.
