@@ -7,8 +7,8 @@ dotenv.config();
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "opeyemi*220206",
-  database: "FINANCE_TRACKER_DB",
+  password: "SoftwareDev#1",
+  database: "finance_tracker",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

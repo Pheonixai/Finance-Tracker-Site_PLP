@@ -1,12 +1,12 @@
 const express = require("express");
-const mysql = require("mysql2");
 const session = require("express-session");
+const mysql = require("mysql2");
 const bcrypt = require("bcryptjs");
 const flash = require("connect-flash");
 const MySQLStore = require("express-mysql-session")(session);
 const dotenv = require("dotenv");
 const { isAuthenticated } = require("./middlewares/authmiddleware");
-
+const authRoutes = require("./routes/authRoutes");
 dotenv.config();
 
 // Initialize app
@@ -20,8 +20,8 @@ app.use(express.urlencoded({ extended: true })); // Capture form data
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "",
-  database: "Finance_Tracker_DB",
+  password: "SoftwareDev#1",
+  database: "finance_tracker",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -44,6 +44,8 @@ app.use(
 // Flash messages middleware
 app.use(flash());
 
+app.use("/", authRoutes);
+
 // Test MySQL Connection
 pool.getConnection((err, connection) => {
   if (err) {
@@ -56,8 +58,7 @@ pool.getConnection((err, connection) => {
   const createUsersTable = `
             CREATE TABLE IF NOT EXISTS Users (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            first_name VARCHAR(255) NOT NULL,
-            last_name VARCHAR(255) NOT NULL,
+            name VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL UNIQUE,
             password_hash VARCHAR(255) NOT NULL,
             phone VARCHAR(15),
@@ -70,20 +71,46 @@ pool.getConnection((err, connection) => {
       return;
     }
     console.log("Users table created successfully!");
+    // console.log(results);
   });
 
-  // Create Transactions table
-  const createTransactionsTable = `
-    CREATE TABLE IF NOT EXISTS Transactions (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        user_id INT NOT NULL,
-        amount DECIMAL(10, 2) NOT NULL,
-        type ENUM('income', 'expense') NOT NULL,
-        category VARCHAR(255),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES Users(id)
-    );
+  // insert sample data
+  const insertSampleUsers = `
+    INSERT INTO Users (name, email, password_hash, phone)
+    VALUES
+            ('John Doe', 'weitfdgadaftg@gmail.com', '${bcrypt.hashSync(
+              "password1",
+              10
+            )}', '1234567890'),
+            ('Jane Doe', 'wimachiuchisauke@gmail.com', '${bcrypt.hashSync(
+              "password2",
+              10
+            )}', '0987654321')
+       ON DUPLICATE KEY UPDATE id=id;  -- Prevent duplicate entry errors 
     `;
+  connection.query(insertSampleUsers, (err, results) => {
+    if (err) {
+      console.error("Error inserting into users table:", err.stack);
+      return;
+    }
+    console.log("Successfully inserted data into users table");
+  });
+
+  // create Transactions table
+  const createTransactionsTable = `
+        CREATE TABLE IF NOT EXISTS Transactions (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            USER_ID INT,
+            Amount DECIMAL(10, 2) NOT NULL,  -- Change Amount to DECIMAL for monetary values
+            Transaction_Type VARCHAR(10) NOT NULL,
+            Date DATE NOT NULL,
+            Time VARCHAR(255) NOT NULL,
+            phone VARCHAR(15),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (USER_ID) REFERENCES Users(id)  -- Corrected foreign key reference
+        )
+        `;
+
   connection.query(createTransactionsTable, (err, results) => {
     if (err) {
       console.error("Error creating Transactions table:", err);
@@ -91,13 +118,17 @@ pool.getConnection((err, connection) => {
     }
     console.log("Transactions table created successfully!");
   });
+
+  // const insertSampleTransactions = `
+  //     INSERT INTO Transactions (first_name, last)
+  // `
 });
 
 // Route (protected)
-app.get("/profile", isAuthenticated, (req, res) => {
+app.get("/", isAuthenticated, (req, res) => {
   res.send("Welcome to your dashboard 😍");
 });
 
 // Start server
-const PORT = 3000;
+const PORT = 3303;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
