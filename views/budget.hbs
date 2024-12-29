@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Manager</title>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/budget.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Budget Manager</h1>
+        </header>
+        <main class="main-content">
+            <section class="budget-form">
+                <h2>Set Your Budget</h2>
+                <form id="budgetForm" action="/budget/setBudget" method="POST">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" name="category" placeholder="e.g., Food, Rent" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+                    </div>
+                    <button type="submit" class="btn">Add Budget</button>
+                </form>
+            </section>
+            <section class="budget-list">
+                {{!-- <h2>Your Budgets</h2>
+                <ul id="budgetItems">
+                    <!-- Budget items will dynamically populate here -->
+                </ul> --}}
+
+                
+        <!-- Table for displaying budgets -->
+    <h2>Your Budgets</h2>
+    <table id="budgetTable">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the transactions array -->
+            {{#each budget}}
+                <tr>
+                     <td>{{this.category}}</td>
+                    <td>{{this.amount}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <form action="/budget/getBudget" method="GET">
+        <button type="submit" class="btn">Get Budget</button>
+    </form>
+            </section>
+        </main>
+    </div>
+    <script src="/budgChart.js"></script>
+</body>
+</html>

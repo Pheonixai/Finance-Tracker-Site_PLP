@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Dashboard</title>
+    <link rel="stylesheet" href="/dash.css">
+</head>
+<body>
+    <h1>Transaction Dashboard</h1>
+
+    <!-- Form for adding a transaction -->
+    <form id="transactionForm" action="/transaction/addTransact" method="POST">
+        <div class="form-handler"><h2>Add a Transaction</h2></div>
+        <input type="text" name="id" placeholder="User ID" required />
+        <input type="number" name="Amount" placeholder="Amount" required />
+        <select name="Transaction_type" required>
+            <option value="">Select Transaction Type</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+        </select>
+        <input type="text" name="Category" placeholder="Category" required />
+        <button type="submit">Add Transaction</button>
+    </form>
+
+        <!-- Table for displaying transactions -->
+    <h2>All Transactions</h2>
+    <table id="transactionTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Amount</th>
+                <th>Transaction Type</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the transactions array -->
+            {{#each transactions}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.Amount}}</td>
+                    <td>{{this.Transaction_type}}</td>
+                    <td>{{this.Category}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <form action="/transaction/getTransact" method="GET">
+        <button type="submit">Get Transactions</button>
+    </form>
+
+    {{#if message}}
+        <p>{{message}}</p>
+    {{/if}}
+</body>
+</html>

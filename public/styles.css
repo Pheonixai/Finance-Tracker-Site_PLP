@@ -1,0 +1,361 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Dashboard Container */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 500px 50px 50px 50px;
+}
+
+/* Card Styling */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Spacing between elements */
+    color:#1e1e1e;
+}
+
+/* Good Morning Section */
+.overview h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.overview .balance {
+    font-size: 1.5rem;
+    color: #0b6b30;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.actions button {
+    background-color: #23a455;
+    color: white;
+    border: 2px dotted black;
+    border-radius: 5px;
+    padding: 10px;
+    flex: 1; /* Buttons grow evenly */
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.logout {
+    background-color: #23a455;
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1; /* Buttons grow evenly */
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 500px;
+    color: white;
+}
+
+button > a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.actions button:hover {
+    background-color: #166f38;
+}
+
+/* Progress Bar Section */
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 20px;
+    height: 10px;
+    width: 100%;
+    position: relative;
+    color: #1e1e1e;
+}
+
+.progress-bar .fill {
+    background: #23a455;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* Tracker Section */
+.tracker h4 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.tracker canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Flexbox for Evenly Spaced Cards */
+.card.analytics ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card.analytics ul li {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Call-to-Action Styling */
+.card.invest h4 {
+    font-size: 1.4rem;
+    /* margin-bottom: 10px; */
+    color:#1e1e1e;
+}
+
+.card.invest {
+    color: #1e1e1e;
+}
+
+.card.invest button {
+    background-color: #23a455;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.card.invest button:hover {
+    background-color:#137739;
+}
+
+
+/* BUDGET */
+/* Budget Card Styling */
+.card.budget h4 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card.budget p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #555;
+}
+
+.card.budget .progress-bar {
+    background: #e0e0e0;
+    border-radius: 20px;
+    height: 10px;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+
+.card.budget .progress-bar .fill {
+    background: #23a455;
+    height: 100%;
+    border-radius: 20px;
+    width: 64%; /* Represents 64% progress */
+}
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark background */
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 17vh;
+}
+
+/* Form Container */
+.form-container {
+    background-color: white; /* Slightly lighter than body */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Heading Styling */
+.form-container h2 {
+    color: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+/* LOGIN */
+/* General Reset */
+/* Navbar Styling */
+.navbar {
+    position: fixed; /* Make it stick to the top */
+    top:0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    width: 100%; /* Full width */
+    background: #2a2a2a; /* Dark background */
+    padding: 20px 30px; /* Space inside the navbar */
+    display: flex;
+    justify-content: space-evenly; /* Space between logo and nav links */
+    align-items: center; /* Vertically center elements */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Navbar Logo */
+.navbar .logo {
+    width: 80px; /* Adjust size for visibility */
+}
+
+/* Navbar Links */
+.navbar nav ul {
+    list-style: none; /* Remove bullets */
+    display: flex;
+    gap: 10px; /* Space between items */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar nav ul li a {
+    text-decoration: none; /* Remove underline */
+    color: #f4f4f4; /* Light color for contrast */
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #1b753e; /* Highlight effect */
+}
+
+/* Login Button */
+.navbar .login-btn {
+    background-color: #23a455;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.navbar .login-btn:hover {
+    background-color: #137338; /* Slightly darker on hover */
+}
+
+
+/* Main Content */
+/* Centering the Login Page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark background */
+    color: #f4f4f4;
+    margin: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    flex-direction: column; /* Stack elements if there's a navbar */
+}
+
+/* Login Page Container */
+.login-page {
+    width: 100%;
+    color: #1e1e1e;
+    max-width: 500px; /* Increase max width for larger form */
+    background: white; /* Slightly lighter than the body */
+    padding: 20px 30px; /* Add some padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: -180px; /* Added it to move the form up after removing the navbar */
+}
+
+/* Login Form Inputs */
+.login-form input {
+    width: 100%; /* Make inputs fill the width of the container */
+    padding: 12px; /* Adjust padding for comfort */
+    margin-bottom: 15px; /* Spacing between inputs */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    background: whitesmoke; /* Darker input background */
+    color: #333; /* Light text color */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Login Button */
+.cta-btn {
+    background-color: #23a455;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Make the button match the input width */
+    transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #12542c;
+}
+
+
+
+/* Footer */
+/* Footer Styling */
+footer {
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add padding */
+    background: #2a2a2a; /* Match the navbar background */
+    color: #f4f4f4; /* Light text color */
+    position: relative; /* Default positioning */
+    width: 100%; /* Full width */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on top */
+    margin-top: auto; /* Push footer to the bottom */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+@media( max-width: 1200px ) {
+    .dashboard {
+        margin-top: 35vw;
+    }
+}
+
+@media( max-width: 800px ) {
+    .dashboard {
+        margin-top: 50px;
+    }
+}

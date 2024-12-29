@@ -1,0 +1,60 @@
+body {
+    background-color: rgb(180, 236, 159);
+}
+
+nav {
+    background-color: #160d46;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: right;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: rgb(180, 236, 159);
+    color: darkblue;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    background-color: darkblue;
+    padding: 10px;
+    width: 150px;
+    color: white;
+}
+
+/* REGISTER.HBS */
+
+form {
+    display: block;
+}
+
+div {
+    margin: 20px;
+}
+input{
+    padding: 10px;
+    border: 2px ridge #160d46;
+    width: 70vw;
+}
