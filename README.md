@@ -25,3 +25,8 @@ A simple, yet effective personal finance management designed to help you take co
 
 This project is licensed under the MIT License.
 
+## Setup
+1. Create a `.env` file in the root directory.
+2. Add the required environment variables as shown in `.env.example`.
+3. After Cloning the repo, use npm start to view
+
