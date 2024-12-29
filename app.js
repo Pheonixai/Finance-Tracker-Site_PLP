@@ -70,5 +70,5 @@ app.use('/budget', require('./routes/budget'));
 app.use('/chart', require('./routes/chart'));
 
 // Start server
-const PORT = 3500;
+const PORT = 3306;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
