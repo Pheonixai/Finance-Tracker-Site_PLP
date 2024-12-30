@@ -26,11 +26,47 @@ A simple, yet effective personal finance management designed to help you take co
 This project is licensed under the MIT License.
 
 ## Setup
-1. Create a `.env` file in the root directory.
-2. Add the required environment variables as shown in `.env.example`.
-3. After Cloning the repo, use npm start to view
+Instructions:
 
-#Installation instructions 
-1. Create a database and name it 
-2. Connect it using the env file and that's all
+1. Clone the Repository:
+Clone this repository to your local machine.
+
+
+2. Create the Database:
+
+Create a database and give it a name of your choice.
+
+
+
+3. Set Up Environment Variables:
+
+-Create a .env file in the root directory.
+
+-Add the required environment variables as shown in the .env.example file, ensuring the database details match the one you just created.
+
+
+
+4. Install Dependencies:
+
+-Check the package.json file for a list of required dependencies.
+
+-Run the following command in the terminal to install them:
+
+npm install
+
+
+
+5. Start the Application:
+
+-Start the application with npm start
+
+-You should see the message Successfully connected to the database in the console if the setup is correct.
+
+
+
+6. View in Browser:
+
+Open your browser and navigate to http://localhost:3500 to view the application.
+
+
 
