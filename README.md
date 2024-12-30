@@ -30,3 +30,7 @@ This project is licensed under the MIT License.
 2. Add the required environment variables as shown in `.env.example`.
 3. After Cloning the repo, use npm start to view
 
+#Installation instructions 
+1. Create a database and name it 
+2. Connect it using the env file and that's all
+
