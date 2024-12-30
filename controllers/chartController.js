@@ -12,7 +12,7 @@
      password: process.env.DB_PASSWORD,
      database: process.env.DB_NAME,
      waitForConnections: true,
-     connectionLimit: 10,
+     connectionLimit: 5,
      queueLimit: 0
 });
 
@@ -35,7 +35,7 @@ exports.dispBudget = (req, res) => {
             res.status(200).json({ budget: [], message: 'No budget found' }); // Return an empty array if no budgets
             console.log("Fetched Budgets:", results);
         }
-    })
+    }) 
 
 }
 

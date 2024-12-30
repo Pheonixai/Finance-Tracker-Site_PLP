@@ -10,7 +10,7 @@ const pool = mysql.createPool({
   password: "",
   database: "FINANCE_TRACKER_DB",
   waitForConnections: true,
-  connectionLimit: 10,
+  connectionLimit: 5,
   queueLimit: 0,
 });
 

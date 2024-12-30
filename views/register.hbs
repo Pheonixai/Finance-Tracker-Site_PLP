@@ -91,5 +91,9 @@
             <p>Already have an account? <a href="/login">Login</a></p>
         </div>
     </section>
+
+        {{#if message }}
+        <h4 class="alert alert-danger">{{message}}</h4>
+        {{/if}} 
 </body>
 </html>

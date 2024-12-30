@@ -47,8 +47,8 @@
             <!-- Loop through the transactions array -->
             {{#each budget}}
                 <tr>
-                     <td>{{this.category}}</td>
-                    <td>{{this.amount}}</td>
+                     <td>{{this.Category}}</td>
+                    <td>{{this.Amount}}</td>
                 </tr>
             {{/each}}
         </tbody>
@@ -61,5 +61,9 @@
         </main>
     </div>
     <script src="/budgChart.js"></script>
+
+        {{#if message }}
+        <h4 class="alert alert-danger">{{message}}</h4>
+        {{/if}} 
 </body>
 </html>

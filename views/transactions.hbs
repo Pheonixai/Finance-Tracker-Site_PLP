@@ -12,7 +12,7 @@
     <!-- Form for adding a transaction -->
     <form id="transactionForm" action="/transaction/addTransact" method="POST">
         <div class="form-handler"><h2>Add a Transaction</h2></div>
-        <input type="text" name="id" placeholder="User ID" required />
+        <input type="text" name="id" placeholder="Transaction ID" required />
         <input type="number" name="Amount" placeholder="Amount" required />
         <select name="Transaction_type" required>
             <option value="">Select Transaction Type</option>
@@ -40,7 +40,7 @@
                 <tr>
                     <td>{{this.id}}</td>
                     <td>{{this.Amount}}</td>
-                    <td>{{this.Transaction_type}}</td>
+                    <td>{{this.Transaction_Type}}</td>
                     <td>{{this.Category}}</td>
                 </tr>
             {{/each}}

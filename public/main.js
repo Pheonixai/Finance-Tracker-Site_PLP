@@ -47,8 +47,8 @@ const view = document.getElementById('view');
       function prepareChartData(budgetData) {
         const categories = {};
         budgetData.forEach((item) => {
-          const category = item.category;
-          const amount = parseFloat(item.amount);
+          const category = item.Category;
+          const amount = parseFloat(item.Amount);
           if (categories[category]) {
             categories[category] += amount;
           } else {

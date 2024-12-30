@@ -15,7 +15,7 @@ const db = mysql.createConnection({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 5,
     queueLimit: 0
 });
 
@@ -48,6 +48,68 @@ db.connect((error) => {
     else {
         console.log("Connected successfully to database")
     }
+
+      // Create Users Table
+  const createUsersTable = `
+                CREATE TABLE IF NOT EXISTS Users (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                first_name VARCHAR(255) NOT NULL,
+                last_name VARCHAR(255) NOT NULL,
+                email VARCHAR(255) NOT NULL UNIQUE,
+                password_hash VARCHAR(255) NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            `;
+    db.query(createUsersTable, (err, results) =>{
+    if (err) {
+    console.error('Error creating Users table:', err);
+    return;
+    }
+    console.log('Users table created successfully!');
+    // console.log(results);
+    });
+
+
+        // create Transactions table
+        const createTransactionsTable = `
+        CREATE TABLE IF NOT EXISTS Transactions (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            Amount DECIMAL(50, 2) NOT NULL,  -- Change Amount to DECIMAL for monetary values
+            Category VARCHAR(255) NOT NULL,
+            Transaction_Type VARCHAR(10) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        `;
+        // FOREIGN KEY (USER_ID) REFERENCES Users(id)  -- Corrected foreign key reference
+    
+    db.query(createTransactionsTable, (err, results) =>{
+        if (err) {
+            console.error('Error creating Transactions table:', err);
+            return;
+        }
+        console.log('Transactions table created successfully!');
+    });
+
+    // create budget table 
+        // create Transactions table
+        const createBudgetTable = `
+        CREATE TABLE IF NOT EXISTS Budget (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            Amount DECIMAL(50, 2) NOT NULL,  -- Change Amount to DECIMAL for monetary values
+            Category VARCHAR(255) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        `;
+    
+    db.query(createBudgetTable, (err, results) =>{
+        if (err) {
+            console.error('Error creating Budget table:', err);
+            return;
+        }
+        console.log('Budget table created successfully!');
+    });
+
+
 })
 
 // Define Routes - Main Page , dashboard , Profile - Registeration and Login
