@@ -17,7 +17,7 @@ A simple, yet effective personal finance management designed to help you take co
 
 **Technology Stack:**
 
-* **Frontend:** HTML, CSS, and JavaScript
+* **Frontend:** HTML(HBS as view engine), CSS, and JavaScript
 * **Backend:** Expess.js and Node.js for server-side logic and API endpoints
 * **Database:** MySQL to store user data, transactions, and budgets
 
