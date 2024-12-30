@@ -1,4 +1,4 @@
-**Finance Tracker**
+**Finbuddy**
 
 A simple, yet effective personal finance management designed to help you take control of your finances
 
